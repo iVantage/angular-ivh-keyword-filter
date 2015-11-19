@@ -1,0 +1,21 @@
+{
+  "name": "angular-ivh-smart-filter",
+  "version": "0.1.0",
+  "homepage": "https://github.com/iVantage/angular-ivh-smart-filter",
+  "license": "MIT",
+  "main": [
+    "dist/ivh-smart-filter.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular": "^1.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.2"
+  }
+}
