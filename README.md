@@ -40,6 +40,16 @@ angular.module('myApp').controller('MyCtrl', function(ivhSmartFilter) {
 });
 ```
 
+Or use the actual filter version in your views:
+
+```html
+<ul>
+  <li ng-repeat="messsage in myEmails | ivhSmartFilter:'to:me receipts'">
+    <!-- do stuff with message -->
+  </li>
+</ul>
+```
+
 
 ## Testing
 
