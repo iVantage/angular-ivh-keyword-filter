@@ -109,6 +109,7 @@ needed when you make changes to source files.
 
 ## Changelog
 
+- 2015-12-03 v0.4.0 Add ability to provide a keyword alias map
 - 2015-12-03 v0.3.0 Add ability to specify accepted keywords
 - 2015-11-19 v0.1.0 Initial release
 
