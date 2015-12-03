@@ -50,6 +50,25 @@ Or use the actual filter version in your views:
 </ul>
 ```
 
+### Options
+
+The `ivhSmartFilter` service (and corresponding filter) accept an options object
+as its second paramenter.
+
+You may supply a list of filter keywords you want to recognize:
+
+```javascript
+var opts = {
+  keywords: ['to']
+};
+
+ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants', opts);
+// {
+//   $: 'subject:"hello world" wowza pants',
+//   to: 'foo@bar.com'
+// }
+```
+
 
 ## Testing
 

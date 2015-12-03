@@ -19,8 +19,8 @@ angular.module('ivh.smartFilter', []);
 angular.module('ivh.smartFilter')
   .filter('ivhSmartFilter', ['filterFilter', 'ivhSmartFilter', function(filterFilter, ivhSmartFilter) {
     'use strict';
-    return function(a, s) {
-      return filterFilter(a, ivhSmartFilter(s));
+    return function(a, s, o) {
+      return filterFilter(a, ivhSmartFilter(s, o));
     };
   }]);
 
@@ -53,8 +53,17 @@ angular.module('ivh.smartFilter')
       return c === ':';
     };
 
-    return function(str) {
+    var isAllowedQualifier = function(str) {
+      return !allowedQualifiers || allowedQualifiers.indexOf(str) > -1;
+    };
+
+    var allowedQualifiers = false;
+
+    return function(str, opts) {
       if(!str) { return {}; }
+      opts = opts || {};
+      allowedQualifiers = opts.keywords || allowedQualifiers;
+
       var c = 0 // Current char
         , filter = {}
         , $words = [] // List of free words, i.e. stuff for $
@@ -84,7 +93,7 @@ angular.module('ivh.smartFilter')
             quoteFlag = c;
           }
 
-        } else if(!quoteFlag && isQualifierFlag(c)) {
+        } else if(!quoteFlag && isQualifierFlag(c) && isAllowedQualifier($word)) {
           if(qualifier) {
             filter[qualifier] = $word;
             qualifier = '';

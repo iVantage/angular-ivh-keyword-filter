@@ -9,8 +9,8 @@
 angular.module('ivh.smartFilter')
   .filter('ivhSmartFilter', ['filterFilter', 'ivhSmartFilter', function(filterFilter, ivhSmartFilter) {
     'use strict';
-    return function(a, s) {
-      return filterFilter(a, ivhSmartFilter(s));
+    return function(a, s, o) {
+      return filterFilter(a, ivhSmartFilter(s, o));
     };
   }]);
 

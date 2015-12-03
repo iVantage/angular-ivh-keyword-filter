@@ -55,4 +55,12 @@ describe('Service: ivhSmartFilter', function() {
       foo: 'bar'
     });
   });
+
+  it('should take a list of allowed qualified terms', function() {
+    var actual = ivhSmartFilter('foo:bar to:justin', {keywords: ['to']});
+    expect(actual).toEqual({
+      $: 'foo:bar',
+      to: 'justin'
+    });
+  });
 });

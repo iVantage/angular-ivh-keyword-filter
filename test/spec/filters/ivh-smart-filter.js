@@ -18,8 +18,9 @@ describe('Filter: ivhSmartFilter', function() {
     });
     var a = [{label: 'foo'}]
       , s = 'I am a foo!'
-      , v = ivhSmartFilterFilter(a, s);
-    expect(spy).toHaveBeenCalledWith(s);
+      , o = {}
+      , v = ivhSmartFilterFilter(a, s, o);
+    expect(spy).toHaveBeenCalledWith(s, o);
     expect(spy2).toHaveBeenCalledWith(a, 'snap');
     expect(v).toEqual('hooray');
   });
