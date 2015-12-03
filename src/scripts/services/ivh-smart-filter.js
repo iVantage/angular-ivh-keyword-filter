@@ -27,15 +27,23 @@ angular.module('ivh.smartFilter')
     };
 
     var isAllowedQualifier = function(str) {
-      return !allowedQualifiers || allowedQualifiers.indexOf(str) > -1;
+      if(!angular.isArray(allowedQualifiers)) { return true; }
+      str = unAlias(str);
+      return allowedQualifiers.indexOf(str) > -1;
     };
 
-    var allowedQualifiers = false;
+    var unAlias = function(str) {
+      return aliasMap.hasOwnProperty(str) ? aliasMap[str] : str;
+    };
+
+    var allowedQualifiers = false
+      , aliasMap = {};
 
     return function(str, opts) {
       if(!str) { return {}; }
       opts = opts || {};
       allowedQualifiers = opts.keywords || allowedQualifiers;
+      aliasMap = angular.extend({}, opts.aliases);
 
       var c = 0 // Current char
         , filter = {}
@@ -66,13 +74,8 @@ angular.module('ivh.smartFilter')
             quoteFlag = c;
           }
 
-        } else if(!quoteFlag && isQualifierFlag(c) && isAllowedQualifier($word)) {
-          if(qualifier) {
-            filter[qualifier] = $word;
-            qualifier = '';
-          } else {
-            qualifier = $word;
-          }
+        } else if(!quoteFlag && !qualifier && isQualifierFlag(c) && isAllowedQualifier($word)) {
+          qualifier = unAlias($word);
           $word = '';
 
         } else if(!quoteFlag && isWhiteSpace(c)) {

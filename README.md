@@ -52,6 +52,8 @@ Or use the actual filter version in your views:
 
 ### Options
 
+#### Allowed Keywords
+
 The `ivhSmartFilter` service (and corresponding filter) accept an options object
 as its second paramenter.
 
@@ -68,6 +70,27 @@ ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants', opts);
 //   to: 'foo@bar.com'
 // }
 ```
+
+#### Keyword Aliases
+
+You may also provide keyword aliases with your options:
+
+```javascript
+var opts = {
+  aliases: {
+    subject: 'emailSubject'
+  }
+};
+
+ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants', opts);
+// {
+//   $: 'wowza pants',
+//   emailSubject: 'hello world',
+//   to: 'foo@bar.com'
+// }
+```
+
+Note that aliases will be resolved before checking allowed keywords.
 
 
 ## Testing

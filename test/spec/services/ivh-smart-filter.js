@@ -63,4 +63,34 @@ describe('Service: ivhSmartFilter', function() {
       to: 'justin'
     });
   });
+
+  it('should take a map of qualified term aliases', function() {
+    var actual = ivhSmartFilter('foo:bar to:justin', {aliases: {
+      'foo': 'wowza'
+    }});
+    expect(actual).toEqual({
+      wowza: 'bar',
+      to: 'justin'
+    });
+  });
+
+  it('should use resolved aliases to determine if a term is allowed', function() {
+    var actual = ivhSmartFilter('foo:bar to:justin', {
+      keywords: ['wowza'],
+      aliases: {
+        'foo': 'wowza'
+      }
+    });
+    expect(actual).toEqual({
+      $: 'to:justin',
+      wowza: 'bar',
+    });
+  });
+
+  it('should qualifer flags after the fist in a single word', function() {
+    var actual = ivhSmartFilter('foo:bar:blargus');
+    expect(actual).toEqual({
+      foo: 'bar:blargus'
+    });
+  });
 });
