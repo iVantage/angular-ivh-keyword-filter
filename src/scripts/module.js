@@ -1,9 +1,9 @@
 
 /**
- * Main module declaration for ivh.smartFilter
+ * Main module declaration for ivh.keywordFilter
  *
- * @package ivh.smartFilter
+ * @package ivh.keywordFilter
  * @copyright 2015 iVantage Health Analytics, Inc.
  */
 
-angular.module('ivh.smartFilter', []);
+angular.module('ivh.keywordFilter', []);

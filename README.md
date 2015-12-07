@@ -1,12 +1,12 @@
 
-# ivh.smartFilter
+# ivh.keywordFilter
 
-[![Build Status](https://secure.travis-ci.org/iVantage/angular-ivh-smart-filter.png?branch=master)](https://travis-ci.org/iVantage/angular-ivh-smart-filter)
+[![Build Status](https://secure.travis-ci.org/iVantage/angular-ivh-keyword-filter.png?branch=master)](https://travis-ci.org/iVantage/angular-ivh-keyword-filter)
 
 > Convert generic filter strings to smarter filter objects.
 
 ```javascript
-ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants');
+ivhKeywordFilter('to:foo@bar.com subject:"hello world" wowza pants');
 // {
 //   $: 'wowza pants',
 //   to: 'foo@bar.com',
@@ -19,7 +19,7 @@ ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants');
 Install with bower:
 
 ```
-bower install --save angular-ivh-smart-filter
+bower install --save angular-ivh-keyword-filter
 ```
 
 
@@ -28,14 +28,14 @@ bower install --save angular-ivh-smart-filter
 Add this module as a dependency to your app:
 
 ```
-angular.module('myApp', ['ivh.smartFilter']);
+angular.module('myApp', ['ivh.keywordFilter']);
 ```
 
-Then simply inject `ivhSmartFilter`:
+Then simply inject `ivhKeywordFilter`:
 
 ```javascript
-angular.module('myApp').controller('MyCtrl', function(ivhSmartFilter) {
-  this.filterObj = ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants');
+angular.module('myApp').controller('MyCtrl', function(ivhKeywordFilter) {
+  this.filterObj = ivhKeywordFilter('to:foo@bar.com subject:"hello world" wowza pants');
   // filterObj can be passed to filterFilter in your view for smart filtering
 });
 ```
@@ -44,7 +44,7 @@ Or use the actual filter version in your views:
 
 ```html
 <ul>
-  <li ng-repeat="messsage in myEmails | ivhSmartFilter:'to:me receipts'">
+  <li ng-repeat="messsage in myEmails | ivhKeywordFilter:'to:me receipts'">
     <!-- do stuff with message -->
   </li>
 </ul>
@@ -54,7 +54,7 @@ Or use the actual filter version in your views:
 
 #### Allowed Keywords
 
-The `ivhSmartFilter` service (and corresponding filter) accept an options object
+The `ivhKeywordFilter` service (and corresponding filter) accept an options object
 as its second paramenter.
 
 You may supply a list of filter keywords you want to recognize:
@@ -64,7 +64,7 @@ var opts = {
   keywords: ['to']
 };
 
-ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants', opts);
+ivhKeywordFilter('to:foo@bar.com subject:"hello world" wowza pants', opts);
 // {
 //   $: 'subject:"hello world" wowza pants',
 //   to: 'foo@bar.com'
@@ -82,7 +82,7 @@ var opts = {
   }
 };
 
-ivhSmartFilter('to:foo@bar.com subject:"hello world" wowza pants', opts);
+ivhKeywordFilter('to:foo@bar.com subject:"hello world" wowza pants', opts);
 // {
 //   $: 'wowza pants',
 //   emailSubject: 'hello world',

@@ -1,18 +1,18 @@
 {
-  "name": "angular-ivh-smart-filter",
+  "name": "angular-ivh-keyword-filter",
   "version": "0.4.0",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iVantage/angular-ivh-smart-filter.git"
+    "url": "https://github.com/iVantage/angular-ivh-keyword-filter.git"
   },
   "author": "iVantage",
   "bugs": {
-    "url": "https://github.com/iVantage/angular-ivh-smart-filter/issues"
+    "url": "https://github.com/iVantage/angular-ivh-keyword-filter/issues"
   },
-  "homepage": "https://github.com/iVantage/angular-ivh-smart-filter",
+  "homepage": "https://github.com/iVantage/angular-ivh-keyword-filter",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {

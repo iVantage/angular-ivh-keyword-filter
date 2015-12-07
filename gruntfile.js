@@ -56,14 +56,14 @@ module.exports = function(grunt) {
       options: {separator: '\n'},
       dist: {
         src: ['src/scripts/module.js', 'src/scripts/**/*.js'],
-        dest: 'dist/ivh-smart-filter.js'
+        dest: 'dist/ivh-keyword-filter.js'
       }
     },
 
     uglify: {
       dist: {
-        src: 'dist/ivh-smart-filter.js',
-        dest: 'dist/ivh-smart-filter.min.js'
+        src: 'dist/ivh-keyword-filter.js',
+        dest: 'dist/ivh-keyword-filter.min.js'
       }
     },
 

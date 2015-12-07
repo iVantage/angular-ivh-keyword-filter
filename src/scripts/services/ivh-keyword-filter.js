@@ -1,40 +1,13 @@
 
 /**
- * Main module declaration for ivh.smartFilter
- *
- * @package ivh.smartFilter
- * @copyright 2015 iVantage Health Analytics, Inc.
- */
-
-angular.module('ivh.smartFilter', []);
-
-
-/**
- * Angular filter wrapper for the ivhSmartFilter service
- *
- * @package ivh.smartFilter
- * @copyright 2015 iVantage Health Analytics, Inc.
- */
-
-angular.module('ivh.smartFilter')
-  .filter('ivhSmartFilter', ['filterFilter', 'ivhSmartFilter', function(filterFilter, ivhSmartFilter) {
-    'use strict';
-    return function(a, s, o) {
-      return filterFilter(a, ivhSmartFilter(s, o));
-    };
-  }]);
-
-
-
-/**
  * Convert a generic filter string to a smart filter object
  *
- * @package ivh.smartFilter
+ * @package ivh.keywordFilter
  * @copyright 2015 iVantage Health Analytics, Inc.
  */
 
-angular.module('ivh.smartFilter')
-  .factory('ivhSmartFilter', function() {
+angular.module('ivh.keywordFilter')
+  .factory('ivhKeywordFilter', function() {
     'use strict';
 
     var isEscapeChar = function(c) {
