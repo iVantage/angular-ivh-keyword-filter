@@ -1,10 +1,10 @@
 {
-  "name": "angular-ivh-smart-filter",
+  "name": "angular-ivh-keyword-filter",
   "version": "0.4.0",
-  "homepage": "https://github.com/iVantage/angular-ivh-smart-filter",
+  "homepage": "https://github.com/iVantage/angular-ivh-keyword-filter",
   "license": "MIT",
   "main": [
-    "dist/ivh-smart-filter.js"
+    "dist/ivh-keyword-filter.js"
   ],
   "ignore": [
     "**/.*",
