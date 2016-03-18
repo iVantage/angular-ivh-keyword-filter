@@ -34,6 +34,9 @@ angular.module('myApp', ['ivh.keywordFilter']);
 Then simply inject `ivhKeywordFilter`:
 
 ```javascript
+// Note, the injected name below is not a typo :). There is both a service and
+// filter named `ivhKeywordFilter`. Inject `ivhKeywordFilterFilter` to get the
+// actual filter.
 angular.module('myApp').controller('MyCtrl', function(ivhKeywordFilter) {
   this.filterObj = ivhKeywordFilter('to:foo@bar.com subject:"hello world" wowza pants');
   // filterObj can be passed to filterFilter in your view for smart filtering
